@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #6fa63a;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* NAV */
+nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 24px 60px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 30;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("client 1 transparent.png") no-repeat;
+  background-size: contain;
+  background-position: left bottom;
+  opacity: 0.35;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.hero-image img {
+  height: 100vh;
+  width: auto;
+  object-fit: contain;
+}
+
+/* TEXT */
+.hero-text {
+  position: absolute;
+  right: 80px;
+  bottom: 140px;
+  z-index: 10;
+  text-align: right;
+  opacity: 0;
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.script {
+  font-family: 'Great Vibes', cursive;
+  font-size: 56px;
+  margin-bottom: -18px;
+}
+
+.name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 78px;
+  line-height: 0.95;
+}
+
+.ministries {
+  margin-top: 18px;
+  font-size: 16px;
+  letter-spacing: 8px;
+  color: #f2d27c;
+  text-transform: uppercase;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .hero::before {
+    background-position: center bottom;
+    opacity: 0.25;
+  }
+
+  .hero-text {
+    position: static;
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  .name {
+    font-size: 54px;
+  }
+
+  .hero-image img {
+    height: 80vh;
+  }
+}

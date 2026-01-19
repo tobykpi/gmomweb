@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  background: #000;
+  color: #fff;
+  font-family: Georgia, serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.nav-right a {
+  margin-left: 24px;
+  font-size: 14px;
+  text-decoration: none; /* This removes the underlines */
+  color: #fff;           /* Keeps text white */
+  transition: color 0.3s ease;
+}
+
+.nav-right a:hover {
+  color: #d4af37;        /* Changes to gold when you hover */
+}
+
+.nav-left {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #d4af37;
+}
+
+.nav-right a {
+  margin-left: 24px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+
+/* HEADSHOT */
+.hero-headshot {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  height: 85vh;
+  max-height: 900px;
+  width: auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* TEXT */
+.hero-text {
+  position: absolute;
+  right: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.hero-text .eyebrow {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.hero-text .script {
+  font-family: "Brush Script MT", cursive;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.hero-text h1 {
+  font-size: 64px;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+.hero-text .bottom {
+  margin-top: 12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-headshot {
+    height: 70vh;
+  }
+
+  .hero-text h1 {
+    font-size: 44px;
+  }
+}
