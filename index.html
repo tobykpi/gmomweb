@@ -2,42 +2,424 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rev. Dr. Corteze B. Rawley</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corteze B. Rawley | Breath Of Life Ministries </title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Montserrat+Alternates:wght@800;900&family=Playfair+Display:ital,wght@1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #6fa63a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: #f2d27c;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 24px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('gmom bg.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 5;
+    }
+
+    .hero-image img {
+      height: 95vh;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4));
+    }
+
+    .hero-text {
+      position: absolute;
+      right: 80px;
+      bottom: 140px;
+      z-index: 10;
+      text-align: right;
+      opacity: 0;
+      animation: fadeUp 1s ease-out forwards;
+    }
+
+    .script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 56px;
+      margin-bottom: -18px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+    }
+
+    .name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-style: italic;
+      font-size: 78px;
+      line-height: 0.95;
+      letter-spacing: 1px;
+      color: #ffffff;
+      text-shadow: 0 3px 6px rgba(0,0,0,0.8);
+    }
+
+    .ministries-sub {
+      margin-top: 18px;
+      font-size: 16px;
+      letter-spacing: 8px;
+      color: #f2d27c;
+      text-transform: uppercase;
+    }
+
+    /* CONTENT WRAPPER */
+    .content-wrapper {
+      background: #fdfdfd;
+      color: #333;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .text-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: #6fa63a;
+      margin-bottom: 25px;
+      font-style: italic;
+    }
+
+    .text-block p {
+      line-height: 1.8;
+      font-size: 17px;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    /* PRINCIPLES & HABITS */
+    .principles-box {
+      background: #f4f8f0;
+      padding: 30px;
+      border-left: 5px solid #6fa63a;
+      margin-top: 20px;
+    }
+
+    .principles-box h3 {
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      color: #6fa63a;
+      text-transform: uppercase;
+    }
+
+    .principles-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 20px;
+      font-size: 15px;
+    }
+
+    .inner-list {
+      list-style: none;
+      line-height: 1.8;
+    }
+
+    /* BOOK GALLERY */
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+      align-items: end; /* Aligns all books at the bottom */
+    }
+
+    .book-card {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+    }
+
+    .book-card img {
+      width: auto;
+      max-width: 100%;
+      max-height: 320px; /* Limits height to keep them uniform without cropping */
+      border-radius: 4px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+      margin-bottom: 15px;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .book-card img:hover {
+      transform: translateY(-10px);
+    }
+
+    .book-card h4 {
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #6fa63a;
+    }
+
+    /* FOOTER / CONTACT SECTION */
+    footer {
+      background: #6fa63a;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 35px;
+      background: #f2d27c;
+      color: #6fa63a;
+      font-weight: 600;
+      letter-spacing: 2px;
+      border-radius: 50px;
+      transition: 0.3s;
+    }
+
+    .contact-btn:hover {
+      background: #fff;
+      transform: scale(1.05);
+      color: #6fa63a;
+    }
+
+    .quote-footer {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-style: italic;
+      color: #6fa63a;
+      border-top: 1px solid #eee;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 20px; flex-direction: column; gap: 10px; background: rgba(0,0,0,0.8); }
+      .hero-text { right: 0; left: 0; text-align: center; bottom: 60px; }
+      .name { font-size: 50px; }
+      .section { grid-template-columns: 1fr; padding: 60px 20px; }
+      .hero-image img { height: 75vh; }
+      .principles-list { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+
 <body>
 
-  <section class="hero">
+  <nav>
+    <div style="letter-spacing:3px;font-size:12px;font-weight:600;">
+      CORTEZE B. RAWLEY
+    </div>
+    <ul>
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#books">BOOKS</a></li>
+      <li><a href="https://www.facebook.com/p/Corteze-Rawley-100086657169508/" target="_blank">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-image">
+      <img src="gmom upperbody 2.jpg" alt="Corteze B. Rawley">
+    </div>
+
     <div class="hero-text">
-      <h1>Rev. Dr. Corteze B. Rawley</h1>
-      <p class="subtitle">
-        A woman of God for the people of God, called to boldly proclaim the Gospel.
-      </p>
+      <div class="script">Rev. Dr.</div>
+      <div class="name">
+        CORTEZE<br>
+        B. RAWLEY
+      </div>
+      <div class="bol ministries-sub">BOL MINISTRIES</div>
     </div>
   </section>
 
-  <section class="about">
-    <h2>About</h2>
+  <div class="content-wrapper">
 
-    <p>
-      Rev. Dr. Corteze B. Rawley hails from Simpson United Methodist Church and has
-      been preaching since June 10, 2001. She pursued theological education at
-      Wesley and Palmer Seminaries and holds degrees in Religious Education,
-      Arts, and Theology.
-    </p>
+    <section class="section" id="about">
+      <div class="text-block">
+        <h2>The Calling</h2>
+        <p>A woman of God for the people of God. Breath of Life Ministries presents her to boldly proclaim the Gospel to touch the lives of God’s people. She hails from Simpson United Methodist Church.</p>
+        <p>Having a desire to grow more in God, she became a learned student completing course work at Wesley and Palmer Seminaries. She is a graduate of United Christian International College and Jameson School of Theology.</p>
+        <p>Dr. Rawley earned her Bachelor of Religious Education from United Christian College, Northern District, and her Master of Arts and Doctor of Theology Degrees from International Christian University. She was ordained and licensed June 10, 2007, and served as a Chaplain at Christiana Hospital Health Care Center.</p>
+      </div>
+      <div class="text-block">
+        <img src="gmom upperbody bg UPD.png" alt="Dr. Rawley" style="width: 100%; border-radius: 10px; box-shadow: 15px 15px 0px #6fa63a;">
+      </div>
+    </section>
 
-    <p>
-      Ordained in 2007 and licensed as a Chaplain in 2014, she is the Founder and
-      CEO of <strong>Breath of Life Ministries</strong> and the author of four
-      literary works focused on faith, discipline, and spiritual growth.
-    </p>
+    <section class="section" style="background: #fcfcfc;">
+      <div class="text-block">
+        <h2>Faith & Family</h2>
+        <p>Family is most important to Dr. Rawley. Widow of Thomas Rawley, Mother of Kelly Rawley-Evans, Mother-in-love to Joseph Evans and the Grandmother of Bria Noel, Tobais Erwin and Trinity Alexis Evans. This is where her real ministry lies.</p>
+        <p>She calls her foundational approach <strong>RAWFAITH</strong>, which stands for:</p>
+        
+        <div class="principles-box">
+          <div class="principles-list">
+            <div>
+              <h3>RAW</h3>
+              <ul class="inner-list">
+                <li><strong>R</strong>esponsibility</li>
+                <li><strong>A</strong>ttitude Checks</li>
+                <li><strong>W</strong>ork Ethics</li>
+              </ul>
+            </div>
+            <div>
+              <h3>FAITH</h3>
+              <ul class="inner-list">
+                <li><strong>F</strong>ollow Through</li>
+                <li><strong>A</strong>genda & Accountability</li>
+                <li><strong>I</strong>nspiration</li>
+                <li><strong>T</strong>eam Work</li>
+                <li style="white-space: nowrap;"><strong>H</strong>ealth, Hugs, Help, Hope, Healing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <p>
-      Her ministry philosophy, <strong>RAWFAITH</strong>, emphasizes responsibility,
-      accountability, inspiration, teamwork, health, hope, and healing.
-    </p>
-  </section>
+      <div class="text-block">
+        <h2>Seven Habits</h2>
+        <p>She believes in the 7 habits of Highly Effective Christian Principles of God:</p>
+        <div class="principles-box" style="border-color: #f2d27c;">
+          <h3>The Habits</h3>
+          <ul class="principles-list" style="grid-template-columns: 1fr;">
+            <li>The Worship of God</li>
+            <li>The Word of God</li>
+            <li>The Will of God</li>
+            <li>The Work of God</li>
+            <li>The Witnessing for God</li>
+            <li>The Wealth of God</li>
+            <li>And Warfare for the Kingdom</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="books">
+      <div class="text-block" style="grid-column: 1 / -1;">
+        <h2 style="text-align: center;">Literary Works</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto;">Dr. Rawley is the CEO and Founder of “Breath of Life Ministries” and the author of four literary works designed to make the Word of God applicable to daily life.</p>
+        
+        <p style="text-align: center; font-weight: 600; color: #6fa63a; margin-top: 20px; letter-spacing: 1px;">
+          Click on the book to purchase your copy today!
+        </p>
+
+        <div class="book-grid">
+          <div class="book-card">
+            <a href="https://www.barnesandnoble.com/w/gods-web-mail-corteze-b-rawley/1147246471" target="_blank">
+              <img src="God's web mail.png" alt="God's Web Mail">
+            </a>
+            <h4>God's Web Mail</h4>
+          </div>
+
+          <div class="book-card">
+            <a href="https://www.barnesandnoble.com/w/youre-my-breath-of-life-rev-dr-corteze-b-rawley/1143184255" target="_blank">
+              <img src="you're my breath of life.png" alt="You’re my Breath of Life">
+            </a>
+            <h4>You’re my Breath of Life</h4>
+          </div>
+
+          <div class="book-card">
+            <a href="https://www.amazon.com/Www-Clean-Your-Rev-Corteze-Rawley-ebook/dp/B079J74ZRF" target="_blank">
+              <img src="www cleanupyouract.png" alt="Clean Up Your Act">
+            </a>
+            <h4>Clean Up Your Act</h4>
+          </div>
+
+          <div class="book-card">
+            <a href="https://authorhouse.com/en/bookstore/bookdetails/233523-Faithfully-Fit-Cross-Training-The-Temple-God-Gave-You" target="_blank">
+              <img src="Faithfully Fit Cross-Training The Temple God Gave You.png" alt="Faithfully Fit">
+            </a>
+            <h4>Faithfully Fit</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-footer">
+        "If I Can Help Somebody — Then My Living Is Not In Vain"
+      </div>
+    </section>
+
+    <footer>
+      <p style="letter-spacing: 3px; font-size: 14px;">GET IN TOUCH</p>
+      <a href="https://www.facebook.com/p/Corteze-Rawley-100086657169508/" target="_blank" class="contact-btn">CONNECT ON FACEBOOK</a>
+      <p style="margin-top: 40px; font-size: 10px; opacity: 0.8; letter-spacing: 1px;">&copy; 2026 CORTEZE B. RAWLEY MINISTRIES</p>
+    </footer>
+
+  </div>
 
 </body>
 </html>
