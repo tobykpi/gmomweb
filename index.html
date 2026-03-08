@@ -224,6 +224,76 @@
       color: #6fa63a;
     }
 
+    /* VIDEOS */
+    .video-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 40px;
+      background: #ffffff;
+    }
+
+    .video-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .video-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: #6fa63a;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .video-header p {
+      line-height: 1.8;
+      font-size: 17px;
+      color: #444;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      align-items: start;
+    }
+
+    .video-card {
+      background: #f4f8f0;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      border: none;
+      border-radius: 10px;
+      background: #000;
+    }
+
+    .video-card a {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 12px 24px;
+      background: #6fa63a;
+      color: #fff;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .video-card a:hover {
+      background: #f2d27c;
+      color: #6fa63a;
+    }
+
     /* FOOTER / CONTACT SECTION */
     footer {
       background: #6fa63a;
@@ -282,6 +352,8 @@
       .section { grid-template-columns: 1fr; padding: 60px 20px; }
       .hero-image img { height: 75vh; }
       .principles-list { grid-template-columns: 1fr; }
+      .video-section { padding: 60px 20px; }
+      .video-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -296,6 +368,7 @@
       <li><a href="#home">HOME</a></li>
       <li><a href="#about">ABOUT</a></li>
       <li><a href="#books">BOOKS</a></li>
+      <li><a href="#videos">VIDEOS</a></li>
       <li><a href="https://www.facebook.com/p/Corteze-Rawley-100086657169508/" target="_blank">FACEBOOK</a></li>
       <li><a href="https://youtube.com/@breathoflifeministries-rev4879?si=aGYb1gt__waFGTAo" target="_blank">YOUTUBE</a></li>
       <li><a href="https://www.tiktok.com/@breathoflifeminis?_r=1&_t=ZP-94FtA1E1big" target="_blank">TIKTOK</a></li>
@@ -421,6 +494,35 @@
 
       <div class="quote-footer">
         "If I Can Help Somebody — Then My Living Is Not In Vain"
+      </div>
+    </section>
+
+    <section class="video-section" id="videos">
+      <div class="video-header">
+        <h2>Videos</h2>
+        <p>Watch featured ministry videos and short messages from Breath of Life Ministries.</p>
+      </div>
+
+      <div class="video-grid">
+        <div class="video-card">
+          <iframe 
+            src="https://www.youtube.com/embed/LWIn-WrXNAM" 
+            title="Breath of Life Ministries Video 1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+          <a href="https://youtube.com/shorts/LWIn-WrXNAM?feature=share" target="_blank">Watch on YouTube</a>
+        </div>
+
+        <div class="video-card">
+          <iframe 
+            src="https://www.youtube.com/embed/AU_1SB6oxMw" 
+            title="Breath of Life Ministries Video 2"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+          <a href="https://youtube.com/shorts/AU_1SB6oxMw?feature=share" target="_blank">Watch on YouTube</a>
+        </div>
       </div>
     </section>
 
